@@ -6,19 +6,22 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 const normalizeBasePath = (value?: string) => {
   if (!value) {
-    return "/";
+    return "./";
   }
 
   const trimmed = value.trim();
   if (!trimmed) {
-    return "/";
+    return "./";
   }
 
-  if (trimmed === "/") {
-    return trimmed;
+  if (trimmed === "." || trimmed === "./") {
+    return "./";
   }
 
-  return trimmed.startsWith("/") ? trimmed.replace(/\/+$/, "") : `/${trimmed.replace(/\/+$/, "")}`;
+  const normalized = trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
+  const withoutTrailingSlash = normalized.replace(/\/+$/, "");
+
+  return `${withoutTrailingSlash}/`;
 };
 
 export default defineConfig(({ mode }) => {
