@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Shield, BarChart3, Users, Zap, ArrowRight, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 import quantumLogo from "@/assets/quantum-logo.png";
 
 const Landing = () => {
@@ -18,7 +19,9 @@ const Landing = () => {
             <a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Recursos</a>
             <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Planos</a>
             <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contato</a>
-            <Button variant="outline">Login</Button>
+            <Button variant="outline" asChild>
+              <Link to="/login">Login</Link>
+            </Button>
             <Button>Teste Grátis</Button>
           </nav>
         </div>

@@ -12,6 +12,7 @@ import Analytics from "./pages/Analytics";
 import Support from "./pages/Support";
 import Settings from "./pages/Settings";
 import Landing from "./pages/Landing";
+import Login from "./pages/Login";
 import DashboardLayout from "./components/layout/DashboardLayout";
 import NotFound from "./pages/NotFound";
 
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="settings" element={<Settings />} />
           </Route>
           <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
