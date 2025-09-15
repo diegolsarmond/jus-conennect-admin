@@ -20,6 +20,7 @@ export const routes = {
     newUser: route(buildAdminPath("users", "new")),
     analytics: route(buildAdminPath("analytics")),
     support: route(buildAdminPath("support")),
+    logs: route(buildAdminPath("logs")),
     settings: route(buildAdminPath("settings")),
   },
   notFound: route("*"),
@@ -46,5 +47,6 @@ export const adminRelativePath = {
   newUser: "users/new",
   analytics: "analytics",
   support: "support",
+  logs: "logs",
   settings: "settings",
 } as const;

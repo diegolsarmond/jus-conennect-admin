@@ -19,6 +19,7 @@ const NewSubscription = lazy(() => import("./pages/NewSubscription"));
 const UsersPage = lazy(() => import("./pages/Users"));
 const Analytics = lazy(() => import("./pages/Analytics"));
 const Support = lazy(() => import("./pages/Support"));
+const Logs = lazy(() => import("./pages/Logs"));
 const Settings = lazy(() => import("./pages/Settings"));
 const Landing = lazy(() => import("./pages/Landing"));
 const Login = lazy(() => import("./pages/Login"));
@@ -59,6 +60,7 @@ const App = () => {
                 <Route path={adminRelativePath.newUser} element={<NewUser />} />
                 <Route path={adminRelativePath.analytics} element={<Analytics />} />
                 <Route path={adminRelativePath.support} element={<Support />} />
+                <Route path={adminRelativePath.logs} element={<Logs />} />
                 <Route path={adminRelativePath.settings} element={<Settings />} />
               </Route>
               <Route path={routes.home} element={<Landing />} />
