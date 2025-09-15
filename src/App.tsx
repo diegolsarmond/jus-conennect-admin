@@ -11,6 +11,7 @@ import UsersPage from "./pages/Users";
 import Analytics from "./pages/Analytics";
 import Support from "./pages/Support";
 import Settings from "./pages/Settings";
+import Landing from "./pages/Landing";
 import DashboardLayout from "./components/layout/DashboardLayout";
 import NotFound from "./pages/NotFound";
 
@@ -23,7 +24,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<DashboardLayout />}>
+          <Route path="/admin" element={<DashboardLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="companies" element={<Companies />} />
             <Route path="plans" element={<Plans />} />
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="support" element={<Support />} />
             <Route path="settings" element={<Settings />} />
           </Route>
+          <Route path="/" element={<Landing />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
