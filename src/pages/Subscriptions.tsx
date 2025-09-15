@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { mockSubscriptions, mockCompanies, mockPlans } from "@/data/mockData";
+import { routes } from "@/config/routes";
 import { Plus, Search, CreditCard, TrendingUp, Calendar, AlertTriangle } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -58,7 +59,7 @@ export default function Subscriptions() {
           <p className="text-muted-foreground">Gerencie todas as assinaturas ativas e trials</p>
         </div>
         <Button asChild>
-          <Link to="/admin/subscriptions/new">
+          <Link to={routes.admin.newSubscription}>
             <Plus className="h-4 w-4 mr-2" />
             Nova Assinatura
           </Link>
@@ -204,7 +205,7 @@ export default function Subscriptions() {
           </CardHeader>
           <CardContent className="space-y-3">
             <Button asChild className="w-full justify-start" variant="outline">
-              <Link to="/admin/subscriptions/new">
+              <Link to={routes.admin.newSubscription}>
                 <Plus className="h-4 w-4 mr-2" />
                 Criar Nova Assinatura
               </Link>

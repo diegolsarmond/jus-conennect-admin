@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { mockCompanies } from "@/data/mockData";
+import { routes } from "@/config/routes";
 import { Plus, Search, Users, UserCheck, UserX, Shield } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -54,7 +55,7 @@ export default function UsersPage() {
           <p className="text-muted-foreground">Gerencie usuários e permissões do sistema</p>
         </div>
         <Button asChild>
-          <Link to="/admin/users/new">
+          <Link to={routes.admin.newUser}>
             <Plus className="h-4 w-4 mr-2" />
             Novo Usuário
           </Link>

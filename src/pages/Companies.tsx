@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { mockCompanies, mockPlans } from "@/data/mockData";
+import { routes } from "@/config/routes";
 import { Plus, Search, Building2, Users, Calendar, Activity } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -49,7 +50,7 @@ export default function Companies() {
           <p className="text-muted-foreground">Gerencie as empresas clientes do seu CRM</p>
         </div>
         <Button asChild>
-          <Link to="/admin/companies/new">
+          <Link to={routes.admin.newCompany}>
             <Plus className="h-4 w-4 mr-2" />
             Nova Empresa
           </Link>

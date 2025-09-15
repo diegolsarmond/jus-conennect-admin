@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mockPlans } from "@/data/mockData";
+import { routes } from "@/config/routes";
 import { Plus, Check, Package, Users, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +15,7 @@ export default function Plans() {
           <h1 className="text-3xl font-bold">Planos</h1>
           <p className="text-muted-foreground">Gerencie os planos de assinatura do seu CRM</p>
         </div>
-        <Button onClick={() => navigate("/admin/plans/new") }>
+        <Button onClick={() => navigate(routes.admin.newPlan)}>
           <Plus className="h-4 w-4 mr-2" />
           Novo Plano
         </Button>

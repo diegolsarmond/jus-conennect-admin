@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { mockCompanies, mockPlans } from "@/data/mockData";
+import { routes } from "@/config/routes";
 
 const NewSubscription = () => {
   const [companyId, setCompanyId] = useState("");
@@ -33,7 +34,7 @@ const NewSubscription = () => {
       description: "A nova assinatura foi registrada com sucesso.",
     });
 
-    navigate("/admin/subscriptions");
+    navigate(routes.admin.subscriptions);
   };
 
   return (
