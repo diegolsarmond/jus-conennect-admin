@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import Companies from "./pages/Companies";
 import NewCompany from "./pages/NewCompany";
 import Plans from "./pages/Plans";
+import NewPlan from "./pages/NewPlan";
 import Subscriptions from "./pages/Subscriptions";
 import UsersPage from "./pages/Users";
 import Analytics from "./pages/Analytics";
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="companies" element={<Companies />} />
             <Route path="companies/new" element={<NewCompany />} />
             <Route path="plans" element={<Plans />} />
+            <Route path="plans/new" element={<NewPlan />} />
             <Route path="subscriptions" element={<Subscriptions />} />
             <Route path="users" element={<UsersPage />} />
             <Route path="analytics" element={<Analytics />} />
