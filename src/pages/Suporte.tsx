@@ -7,7 +7,7 @@ import { mockSupportTickets, mockCompanies } from "@/data/mockData";
 import { Plus, Search, Headphones, Clock, CheckCircle, AlertCircle, XCircle } from "lucide-react";
 import { useState } from "react";
 
-export default function Support() {
+export default function Suporte() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const ticketsWithCompany = mockSupportTickets.map(ticket => {

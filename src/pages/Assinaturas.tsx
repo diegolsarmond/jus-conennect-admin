@@ -8,7 +8,7 @@ import { Plus, Search, CreditCard, TrendingUp, Calendar, AlertTriangle } from "l
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Subscriptions() {
+export default function Assinaturas() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const subscriptionsWithDetails = mockSubscriptions.map(sub => {
@@ -58,7 +58,7 @@ export default function Subscriptions() {
           <p className="text-muted-foreground">Gerencie todas as assinaturas ativas e trials</p>
         </div>
         <Button asChild>
-          <Link to="/admin/subscriptions/new">
+          <Link to="/admin/assinaturas/nova">
             <Plus className="h-4 w-4 mr-2" />
             Nova Assinatura
           </Link>
@@ -204,7 +204,7 @@ export default function Subscriptions() {
           </CardHeader>
           <CardContent className="space-y-3">
             <Button asChild className="w-full justify-start" variant="outline">
-              <Link to="/admin/subscriptions/new">
+              <Link to="/admin/assinaturas/nova">
                 <Plus className="h-4 w-4 mr-2" />
                 Criar Nova Assinatura
               </Link>

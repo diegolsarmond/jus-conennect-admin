@@ -9,7 +9,7 @@ import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
-export default function NewPlan() {
+export default function NovoPlano() {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -37,7 +37,7 @@ export default function NewPlan() {
       title: "Plano criado!",
       description: "O novo plano foi cadastrado com sucesso.",
     });
-    navigate("/admin/plans");
+    navigate("/admin/planos");
   };
 
   return (

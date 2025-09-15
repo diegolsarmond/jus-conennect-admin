@@ -8,7 +8,7 @@ import { Plus, Search, Building2, Users, Calendar, Activity } from "lucide-react
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Companies() {
+export default function Empresas() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredCompanies = mockCompanies.filter(company =>
@@ -49,7 +49,7 @@ export default function Companies() {
           <p className="text-muted-foreground">Gerencie as empresas clientes do seu CRM</p>
         </div>
         <Button asChild>
-          <Link to="/admin/companies/new">
+          <Link to="/admin/empresas/nova">
             <Plus className="h-4 w-4 mr-2" />
             Nova Empresa
           </Link>

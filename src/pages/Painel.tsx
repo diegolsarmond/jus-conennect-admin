@@ -6,13 +6,13 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 const COLORS = ['hsl(var(--primary))', 'hsl(var(--secondary))', 'hsl(var(--accent))'];
 
-export default function Dashboard() {
+export default function Painel() {
   const { mrr, arr, churnRate, conversionRate, activeSubscriptions, trialSubscriptions, totalCompanies, monthlyGrowth } = mockAnalytics;
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <h1 className="text-3xl font-bold">Painel</h1>
         <p className="text-muted-foreground">Visão geral do seu CRM SaaS</p>
       </div>
 

@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
 import quantumLogo from "@/assets/quantum-logo.png";
 
-const Register = () => {
+const Cadastro = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -36,7 +36,7 @@ const Register = () => {
       title: "Cadastro realizado!",
       description: "Sua conta foi criada com sucesso."
     });
-    navigate("/login");
+    navigate("/entrar");
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -145,8 +145,8 @@ const Register = () => {
           <div className="text-center space-y-2">
             <p className="text-sm text-muted-foreground">
               Já tem uma conta?{" "}
-              <Link to="/login" className="text-primary hover:underline font-medium">
-                Fazer login
+              <Link to="/entrar" className="text-primary hover:underline font-medium">
+                Entrar
               </Link>
             </p>
             <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -159,4 +159,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Cadastro;

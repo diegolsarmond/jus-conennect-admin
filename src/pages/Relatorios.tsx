@@ -5,7 +5,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 const COLORS = ['hsl(var(--primary))', 'hsl(var(--secondary))', 'hsl(var(--accent))'];
 
-// Extended mock data for analytics
+// Dados adicionais para relatórios
 const cohortData = [
   { month: 'Jan', retained: 100, churned: 0 },
   { month: 'Feb', retained: 85, churned: 15 },
@@ -29,13 +29,13 @@ const conversionFunnel = [
   { stage: 'Ativos 3m+', count: 142, conversion: 14.2 },
 ];
 
-export default function Analytics() {
+export default function Relatorios() {
   const { mrr, arr, churnRate, conversionRate, activeSubscriptions, totalCompanies, monthlyGrowth } = mockAnalytics;
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Relatórios e Analytics</h1>
+        <h1 className="text-3xl font-bold">Relatórios e Análises</h1>
         <p className="text-muted-foreground">Análise completa de performance e métricas de negócio</p>
       </div>
 

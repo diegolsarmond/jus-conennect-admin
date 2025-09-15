@@ -5,12 +5,12 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Settings as SettingsIcon, 
-  CreditCard, 
-  Bell, 
-  Shield, 
-  Globe, 
+import {
+  Settings as SettingsIcon,
+  CreditCard,
+  Bell,
+  Shield,
+  Globe,
   Database,
   Webhook,
   Mail,
@@ -18,7 +18,7 @@ import {
   Users
 } from "lucide-react";
 
-export default function Settings() {
+export default function Configuracoes() {
   return (
     <div className="space-y-6">
       <div>

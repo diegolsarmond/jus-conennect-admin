@@ -17,43 +17,43 @@ const basePath = "/admin";
 
 const navigation = [
   {
-    name: "Dashboard",
+    name: "Painel",
     href: basePath,
     icon: LayoutDashboard,
   },
   {
     name: "Empresas",
-    href: `${basePath}/companies`,
+    href: `${basePath}/empresas`,
     icon: Building2,
   },
   {
     name: "Planos",
-    href: `${basePath}/plans`,
+    href: `${basePath}/planos`,
     icon: Package,
   },
   {
     name: "Assinaturas",
-    href: `${basePath}/subscriptions`,
+    href: `${basePath}/assinaturas`,
     icon: CreditCard,
   },
   {
     name: "Usuários",
-    href: `${basePath}/users`,
+    href: `${basePath}/usuarios`,
     icon: Users,
   },
   {
     name: "Relatórios",
-    href: `${basePath}/analytics`,
+    href: `${basePath}/relatorios`,
     icon: BarChart3,
   },
   {
     name: "Suporte",
-    href: `${basePath}/support`,
+    href: `${basePath}/suporte`,
     icon: HeadphonesIcon,
   },
   {
     name: "Configurações",
-    href: `${basePath}/settings`,
+    href: `${basePath}/configuracoes`,
     icon: Settings,
   },
 ];

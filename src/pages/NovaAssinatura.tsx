@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { mockCompanies, mockPlans } from "@/data/mockData";
 
-const NewSubscription = () => {
+const NovaAssinatura = () => {
   const [companyId, setCompanyId] = useState("");
   const [planId, setPlanId] = useState("");
   const [status, setStatus] = useState("trialing");
@@ -33,7 +33,7 @@ const NewSubscription = () => {
       description: "A nova assinatura foi registrada com sucesso.",
     });
 
-    navigate("/admin/subscriptions");
+    navigate("/admin/assinaturas");
   };
 
   return (
@@ -116,5 +116,5 @@ const NewSubscription = () => {
   );
 };
 
-export default NewSubscription;
+export default NovaAssinatura;
 

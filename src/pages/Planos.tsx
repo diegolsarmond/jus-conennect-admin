@@ -5,7 +5,7 @@ import { mockPlans } from "@/data/mockData";
 import { Plus, Check, Package, Users, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-export default function Plans() {
+export default function Planos() {
   const navigate = useNavigate();
   return (
     <div className="space-y-6">
@@ -14,7 +14,7 @@ export default function Plans() {
           <h1 className="text-3xl font-bold">Planos</h1>
           <p className="text-muted-foreground">Gerencie os planos de assinatura do seu CRM</p>
         </div>
-        <Button onClick={() => navigate("/admin/plans/new") }>
+        <Button onClick={() => navigate("/admin/planos/novo") }>
           <Plus className="h-4 w-4 mr-2" />
           Novo Plano
         </Button>

@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import quantumLogo from "@/assets/quantum-logo.png";
 
-const Login = () => {
+const Entrar = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,7 +36,7 @@ const Login = () => {
 
         <Card className="border-0 bg-background/80 backdrop-blur-sm shadow-lg">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl text-center">Login</CardTitle>
+          <CardTitle className="text-2xl text-center">Entrar</CardTitle>
             <CardDescription className="text-center">
               Digite suas credenciais para acessar o sistema
             </CardDescription>
@@ -101,7 +101,7 @@ const Login = () => {
 
             <div className="text-center text-sm text-muted-foreground">
               Não tem uma conta?{" "}
-              <Link to="/register" className="text-primary hover:underline">
+              <Link to="/cadastro" className="text-primary hover:underline">
                 Cadastre-se
               </Link>
             </div>
@@ -131,4 +131,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Entrar;

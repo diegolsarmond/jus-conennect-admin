@@ -7,7 +7,7 @@ import { mockCompanies } from "@/data/mockData";
 import { Plus, Search, Users, UserCheck, UserX, Shield } from "lucide-react";
 import { useState } from "react";
 
-export default function UsersPage() {
+export default function UsuariosPage() {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Flatten all users from all companies
@@ -231,7 +231,7 @@ export default function UsersPage() {
                 <span className="font-medium">
                   {allUsers.filter(u => u.role === 'user').length}
                 </span>
-                <Badge variant="secondary">User</Badge>
+                <Badge variant="secondary">Usuário</Badge>
               </div>
             </div>
             <div className="flex justify-between items-center">
@@ -240,7 +240,7 @@ export default function UsersPage() {
                 <span className="font-medium">
                   {allUsers.filter(u => u.role === 'support').length}
                 </span>
-                <Badge variant="outline">Support</Badge>
+                <Badge variant="outline">Suporte</Badge>
               </div>
             </div>
           </CardContent>

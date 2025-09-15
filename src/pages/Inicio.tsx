@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import quantumLogo from "@/assets/quantum-logo.png";
 import { useState } from "react";
 
-const Landing = () => {
+const Inicio = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -31,10 +31,10 @@ const Landing = () => {
             <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors story-link">Depoimentos</a>
             <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors story-link">Contato</a>
             <Button variant="outline" asChild className="hover-scale">
-              <Link to="/login">Login</Link>
+              <Link to="/entrar">Entrar</Link>
             </Button>
             <Button asChild className="bg-gradient-primary hover:opacity-90 hover-scale">
-              <Link to="/register">Cadastre-se</Link>
+              <Link to="/cadastro">Cadastre-se</Link>
             </Button>
           </nav>
 
@@ -59,10 +59,10 @@ const Landing = () => {
               <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contato</a>
               <div className="flex gap-2 mt-2">
                 <Button variant="outline" size="sm" asChild>
-                  <Link to="/login">Login</Link>
+                  <Link to="/entrar">Entrar</Link>
                 </Button>
                 <Button size="sm" asChild className="bg-gradient-primary">
-                  <Link to="/register">Cadastre-se</Link>
+                  <Link to="/cadastro">Cadastre-se</Link>
                 </Button>
               </div>
             </nav>
@@ -97,7 +97,7 @@ const Landing = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
             <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:opacity-90 hover-scale shadow-glow" asChild>
-              <Link to="/register">
+              <Link to="/cadastro">
                 Começar Teste Gratuito
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -281,7 +281,7 @@ const Landing = () => {
                   <span>Suporte por email</span>
                 </div>
                 <Button className="w-full mt-6 bg-gradient-primary hover:opacity-90" asChild>
-                  <Link to="/register">Começar Teste</Link>
+                  <Link to="/cadastro">Começar Teste</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -322,7 +322,7 @@ const Landing = () => {
                   <span>Automações</span>
                 </div>
             <Button className="w-full mt-6 bg-gradient-primary hover:opacity-90" asChild>
-              <Link to="/register">Começar Teste</Link>
+              <Link to="/cadastro">Começar Teste</Link>
             </Button>
               </CardContent>
             </Card>
@@ -440,7 +440,7 @@ const Landing = () => {
             Junte-se a centenas de advogados que já confiam no Quantum Jud para gerir seus escritórios.
           </p>
           <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:opacity-90 hover-scale shadow-glow" asChild>
-            <Link to="/register">
+            <Link to="/cadastro">
               Começar Teste Gratuito de 14 Dias
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
@@ -495,4 +495,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default Inicio;
