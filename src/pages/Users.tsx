@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { mockCompanies } from "@/data/mockData";
 import { Plus, Search, Users, UserCheck, UserX, Shield } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function UsersPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -52,9 +53,11 @@ export default function UsersPage() {
           <h1 className="text-3xl font-bold">Usuários</h1>
           <p className="text-muted-foreground">Gerencie usuários e permissões do sistema</p>
         </div>
-        <Button>
-          <Plus className="h-4 w-4 mr-2" />
-          Novo Usuário
+        <Button asChild>
+          <Link to="/admin/users/new">
+            <Plus className="h-4 w-4 mr-2" />
+            Novo Usuário
+          </Link>
         </Button>
       </div>
 

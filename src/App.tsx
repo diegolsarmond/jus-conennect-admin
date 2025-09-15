@@ -17,6 +17,7 @@ import Settings from "./pages/Settings";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import NewUser from "./pages/NewUser";
 import DashboardLayout from "./components/layout/DashboardLayout";
 import NotFound from "./pages/NotFound";
 
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="plans" element={<Plans />} />
             <Route path="plans/new" element={<NewPlan />} />
             <Route path="subscriptions" element={<Subscriptions />} />
+            <Route path="users/new" element={<NewUser />} />
             <Route path="subscriptions/new" element={<NewSubscription />} />
             <Route path="users" element={<UsersPage />} />
             <Route path="analytics" element={<Analytics />} />
