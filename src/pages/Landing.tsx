@@ -5,9 +5,12 @@ import { CheckCircle, Shield, BarChart3, Users, Zap, ArrowRight, Star, Sparkles,
 import { Link } from "react-router-dom";
 import quantumLogo from "@/assets/quantum-logo.png";
 import { useState } from "react";
+import { routes } from "@/config/routes";
+import { appConfig } from "@/config/app-config";
 
 const Landing = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const appName = appConfig.appName;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10 overflow-x-hidden">
@@ -20,8 +23,8 @@ const Landing = () => {
       <header className="border-b bg-background/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={quantumLogo} alt="Quantum Jud" className="h-10 w-10" />
-            <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">Quantum Jud</h1>
+            <img src={quantumLogo} alt={appName} className="h-10 w-10" />
+            <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">{appName}</h1>
           </div>
           
           {/* Desktop Navigation */}
@@ -31,10 +34,10 @@ const Landing = () => {
             <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors story-link">Depoimentos</a>
             <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors story-link">Contato</a>
             <Button variant="outline" asChild className="hover-scale">
-              <Link to="/login">Login</Link>
+              <Link to={routes.login}>Login</Link>
             </Button>
             <Button asChild className="bg-gradient-primary hover:opacity-90 hover-scale">
-              <Link to="/register">Cadastre-se</Link>
+              <Link to={routes.register}>Cadastre-se</Link>
             </Button>
           </nav>
 
@@ -59,10 +62,10 @@ const Landing = () => {
               <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contato</a>
               <div className="flex gap-2 mt-2">
                 <Button variant="outline" size="sm" asChild>
-                  <Link to="/login">Login</Link>
+                  <Link to={routes.login}>Login</Link>
                 </Button>
                 <Button size="sm" asChild className="bg-gradient-primary">
-                  <Link to="/register">Cadastre-se</Link>
+                  <Link to={routes.register}>Cadastre-se</Link>
                 </Button>
               </div>
             </nav>
@@ -89,15 +92,15 @@ const Landing = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in">
-            O Quantum Jud é a solução completa para escritórios de advocacia que buscam 
-            <span className="text-primary font-semibold"> eficiência</span>, 
-            <span className="text-primary font-semibold"> organização</span> e 
+            O {appName} é a solução completa para escritórios de advocacia que buscam
+            <span className="text-primary font-semibold"> eficiência</span>,
+            <span className="text-primary font-semibold"> organização</span> e
             <span className="text-primary font-semibold"> crescimento sustentável</span>.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
             <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:opacity-90 hover-scale shadow-glow" asChild>
-              <Link to="/register">
+              <Link to={routes.register}>
                 Começar Teste Gratuito
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -281,7 +284,7 @@ const Landing = () => {
                   <span>Suporte por email</span>
                 </div>
                 <Button className="w-full mt-6 bg-gradient-primary hover:opacity-90" asChild>
-                  <Link to="/register">Começar Teste</Link>
+                  <Link to={routes.register}>Começar Teste</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -321,9 +324,9 @@ const Landing = () => {
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>Automações</span>
                 </div>
-            <Button className="w-full mt-6 bg-gradient-primary hover:opacity-90" asChild>
-              <Link to="/register">Começar Teste</Link>
-            </Button>
+                <Button className="w-full mt-6 bg-gradient-primary hover:opacity-90" asChild>
+                  <Link to={routes.register}>Começar Teste</Link>
+                </Button>
               </CardContent>
             </Card>
 
@@ -384,7 +387,7 @@ const Landing = () => {
                   ))}
                 </div>
                 <p className="text-muted-foreground mb-4">
-                  "O Quantum Jud revolucionou nossa gestão. Aumentamos nossa produtividade em 40%."
+                  {`"O ${appName} revolucionou nossa gestão. Aumentamos nossa produtividade em 40%."`}
                 </p>
                 <div>
                   <p className="font-semibold">Dr. Ana Silva</p>
@@ -437,10 +440,10 @@ const Landing = () => {
             Pronto para transformar seu escritório?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Junte-se a centenas de advogados que já confiam no Quantum Jud para gerir seus escritórios.
+            Junte-se a centenas de advogados que já confiam no {appName} para gerir seus escritórios.
           </p>
           <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:opacity-90 hover-scale shadow-glow" asChild>
-            <Link to="/register">
+            <Link to={routes.register}>
               Começar Teste Gratuito de 14 Dias
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
@@ -454,8 +457,8 @@ const Landing = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <img src={quantumLogo} alt="Quantum Jud" className="h-8 w-8" />
-                <h3 className="text-lg font-bold">Quantum Jud</h3>
+                <img src={quantumLogo} alt={appName} className="h-8 w-8" />
+                <h3 className="text-lg font-bold">{appName}</h3>
               </div>
               <p className="text-muted-foreground">
                 A solução completa para gestão jurídica moderna.
@@ -487,7 +490,7 @@ const Landing = () => {
             </div>
           </div>
           <div className="border-t mt-12 pt-8 text-center text-muted-foreground">
-            <p>&copy; 2024 Quantum Jud. Todos os direitos reservados.</p>
+            <p>&copy; 2024 {appName}. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>

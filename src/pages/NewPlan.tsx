@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { routes } from "@/config/routes";
 
 export default function NewPlan() {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ export default function NewPlan() {
       title: "Plano criado!",
       description: "O novo plano foi cadastrado com sucesso.",
     });
-    navigate("/admin/plans");
+    navigate(routes.admin.plans);
   };
 
   return (

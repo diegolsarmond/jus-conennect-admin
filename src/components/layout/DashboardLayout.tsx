@@ -1,59 +1,67 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { 
-  LayoutDashboard, 
-  Building2, 
-  Package, 
-  CreditCard, 
-  Users, 
-  BarChart3, 
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import {
+  LayoutDashboard,
+  Building2,
+  Package,
+  CreditCard,
+  Users,
+  BarChart3,
   HeadphonesIcon,
   Settings
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
-
-const basePath = "/admin";
+import { appConfig } from "@/config/app-config";
+import { isActiveRoute, routes } from "@/config/routes";
 
 const navigation = [
   {
     name: "Dashboard",
-    href: basePath,
+    href: routes.admin.dashboard,
     icon: LayoutDashboard,
   },
   {
     name: "Empresas",
-    href: `${basePath}/companies`,
+    href: routes.admin.companies,
     icon: Building2,
   },
   {
     name: "Planos",
-    href: `${basePath}/plans`,
+    href: routes.admin.plans,
     icon: Package,
   },
   {
     name: "Assinaturas",
-    href: `${basePath}/subscriptions`,
+    href: routes.admin.subscriptions,
     icon: CreditCard,
   },
   {
     name: "Usuários",
-    href: `${basePath}/users`,
+    href: routes.admin.users,
     icon: Users,
   },
   {
     name: "Relatórios",
-    href: `${basePath}/analytics`,
+    href: routes.admin.analytics,
     icon: BarChart3,
   },
   {
     name: "Suporte",
-    href: `${basePath}/support`,
+    href: routes.admin.support,
     icon: HeadphonesIcon,
   },
   {
     name: "Configurações",
-    href: `${basePath}/settings`,
+    href: routes.admin.settings,
     icon: Settings,
   },
 ];
@@ -70,17 +78,14 @@ export default function DashboardLayout() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sidebar-primary">
                 <LayoutDashboard className="h-4 w-4 text-sidebar-primary-foreground" />
               </div>
-              <span className="font-bold text-sidebar-foreground">CRM SaaS</span>
+              <span className="font-bold text-sidebar-foreground">{appConfig.appName}</span>
             </div>
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
               {navigation.map((item) => (
                 <SidebarMenuItem key={item.name}>
-                  <SidebarMenuButton
-                    asChild
-                    isActive={location.pathname === item.href}
-                  >
+                  <SidebarMenuButton asChild isActive={isActiveRoute(location.pathname, item.href)}>
                     <Link to={item.href} className="flex items-center gap-3">
                       <item.icon className="h-4 w-4" />
                       <span>{item.name}</span>
@@ -98,7 +103,7 @@ export default function DashboardLayout() {
               <SidebarTrigger />
               <div className="flex-1" />
               <div className="flex items-center gap-4">
-                <span className="text-sm text-muted-foreground">Admin CRM SaaS</span>
+                <span className="text-sm text-muted-foreground">{appConfig.appName} Admin</span>
               </div>
             </div>
           </header>

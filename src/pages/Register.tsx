@@ -7,6 +7,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
 import quantumLogo from "@/assets/quantum-logo.png";
+import { routes } from "@/config/routes";
+import { appConfig } from "@/config/app-config";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -36,7 +38,7 @@ const Register = () => {
       title: "Cadastro realizado!",
       description: "Sua conta foi criada com sucesso."
     });
-    navigate("/login");
+    navigate(routes.login);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,13 +55,13 @@ const Register = () => {
       <Card className="w-full max-w-md relative backdrop-blur-sm border-primary/10 shadow-glow">
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <img src={quantumLogo} alt="Quantum Jud" className="h-16 w-auto" />
+            <img src={quantumLogo} alt={appConfig.appName} className="h-16 w-auto" />
           </div>
           <CardTitle className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
             Criar Conta
           </CardTitle>
           <CardDescription>
-            Preencha os dados para criar sua conta no Quantum Jud
+            Preencha os dados para criar sua conta no {appConfig.appName}
           </CardDescription>
         </CardHeader>
         
@@ -145,11 +147,11 @@ const Register = () => {
           <div className="text-center space-y-2">
             <p className="text-sm text-muted-foreground">
               Já tem uma conta?{" "}
-              <Link to="/login" className="text-primary hover:underline font-medium">
+              <Link to={routes.login} className="text-primary hover:underline font-medium">
                 Fazer login
               </Link>
             </p>
-            <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link to={routes.home} className="text-sm text-muted-foreground hover:text-primary transition-colors">
               ← Voltar para home
             </Link>
           </div>

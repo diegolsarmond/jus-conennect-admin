@@ -64,6 +64,14 @@ This project is built with:
 
 Simply open [Lovable](https://lovable.dev/projects/9189a249-3d12-4c39-8dc9-2682657dd94e) and click on Share -> Publish.
 
+## Configuração para produção
+
+1. Duplique o arquivo `.env.example` para `.env` e ajuste as variáveis de ambiente conforme a infraestrutura desejada.
+2. Garanta que `VITE_APP_BASE_PATH` e `VITE_ADMIN_BASE_PATH` correspondam aos caminhos públicos onde a aplicação será servida.
+3. Atualize `VITE_API_BASE_URL` com o endpoint real da API que será consumida em produção.
+4. Execute `npm run build` para gerar os artefatos minificados na pasta `dist/`.
+5. Opcionalmente, rode `npm run preview` para validar o comportamento do bundle antes de fazer o deploy definitivo.
+
 ## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!

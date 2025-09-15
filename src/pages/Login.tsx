@@ -7,6 +7,8 @@ import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import quantumLogo from "@/assets/quantum-logo.png";
+import { routes } from "@/config/routes";
+import { appConfig } from "@/config/app-config";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     // Simulate login - in real app, this would call an API
     if (email && password) {
-      navigate("/admin");
+      navigate(routes.admin.dashboard);
     }
   };
 
@@ -27,9 +29,9 @@ const Login = () => {
       <div className="w-full max-w-md">
         {/* Logo and Title */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-3 mb-4 hover:opacity-80 transition-opacity">
-            <img src={quantumLogo} alt="Quantum Jud" className="h-12 w-12" />
-            <h1 className="text-3xl font-bold text-primary">Quantum Jud</h1>
+          <Link to={routes.home} className="inline-flex items-center gap-3 mb-4 hover:opacity-80 transition-opacity">
+            <img src={quantumLogo} alt={appConfig.appName} className="h-12 w-12" />
+            <h1 className="text-3xl font-bold text-primary">{appConfig.appName}</h1>
           </Link>
           <p className="text-muted-foreground">Entre na sua conta</p>
         </div>
@@ -87,7 +89,7 @@ const Login = () => {
                   <input type="checkbox" className="rounded border-gray-300" />
                   <span>Lembrar de mim</span>
                 </label>
-                <Link to="/forgot-password" className="text-sm text-primary hover:underline">
+                <Link to={routes.forgotPassword} className="text-sm text-primary hover:underline">
                   Esqueceu a senha?
                 </Link>
               </div>
@@ -101,13 +103,13 @@ const Login = () => {
 
             <div className="text-center text-sm text-muted-foreground">
               Não tem uma conta?{" "}
-              <Link to="/register" className="text-primary hover:underline">
+              <Link to={routes.register} className="text-primary hover:underline">
                 Cadastre-se
               </Link>
             </div>
 
             <div className="text-center mt-4">
-              <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to={routes.home} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 ← Voltar para o site
               </Link>
             </div>

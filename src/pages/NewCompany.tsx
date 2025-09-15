@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { routes } from "@/config/routes";
 
 export default function NewCompany() {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ export default function NewCompany() {
       title: "Empresa cadastrada",
       description: "A empresa foi criada com sucesso.",
     });
-    navigate("/admin/companies");
+    navigate(routes.admin.companies);
   };
 
   return (

@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { mockCompanies } from "@/data/mockData";
+import { routes } from "@/config/routes";
 
 export default function NewUser() {
   const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ export default function NewUser() {
       title: "Usuário criado",
       description: "O usuário foi cadastrado com sucesso.",
     });
-    navigate("/admin/users");
+    navigate(routes.admin.users);
   };
 
   return (
