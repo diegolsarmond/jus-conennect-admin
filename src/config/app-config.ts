@@ -38,7 +38,16 @@ const normalizePath = (value: string | undefined, fallback: string) => {
     return fallback;
   }
 
-  const withLeadingSlash = sanitized.startsWith("/") ? sanitized : `/${sanitized}`;
+  const withoutRelativePrefix = sanitized.replace(/^\.\/+/u, "");
+
+  if (withoutRelativePrefix.length === 0 || withoutRelativePrefix === ".") {
+    return "/";
+  }
+
+  const withLeadingSlash = withoutRelativePrefix.startsWith("/")
+    ? withoutRelativePrefix
+    : `/${withoutRelativePrefix}`;
+
   if (withLeadingSlash.length === 1) {
     return withLeadingSlash;
   }
