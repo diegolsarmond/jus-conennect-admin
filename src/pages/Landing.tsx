@@ -1,69 +1,152 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Shield, BarChart3, Users, Zap, ArrowRight, Star } from "lucide-react";
+import { CheckCircle, Shield, BarChart3, Users, Zap, ArrowRight, Star, Sparkles, TrendingUp, Globe, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import quantumLogo from "@/assets/quantum-logo.png";
+import { useState } from "react";
 
 const Landing = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10 overflow-x-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000" />
+      
       {/* Header */}
-      <header className="border-b bg-background/80 backdrop-blur-sm">
+      <header className="border-b bg-background/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img src={quantumLogo} alt="Quantum Jud" className="h-10 w-10" />
-            <h1 className="text-2xl font-bold text-primary">Quantum Jud</h1>
+            <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">Quantum Jud</h1>
           </div>
+          
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Recursos</a>
-            <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Planos</a>
-            <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contato</a>
-            <Button variant="outline" asChild>
+            <a href="#features" className="text-muted-foreground hover:text-primary transition-colors story-link">Recursos</a>
+            <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors story-link">Planos</a>
+            <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors story-link">Depoimentos</a>
+            <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors story-link">Contato</a>
+            <Button variant="outline" asChild className="hover-scale">
               <Link to="/login">Login</Link>
             </Button>
-            <Button>Teste Grátis</Button>
+            <Button asChild className="bg-gradient-primary hover:opacity-90 hover-scale">
+              <Link to="/register">Cadastre-se</Link>
+            </Button>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </Button>
         </div>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-background/95 backdrop-blur-sm border-t animate-fade-in">
+            <nav className="flex flex-col gap-4 p-4">
+              <a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Recursos</a>
+              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Planos</a>
+              <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors">Depoimentos</a>
+              <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contato</a>
+              <div className="flex gap-2 mt-2">
+                <Button variant="outline" size="sm" asChild>
+                  <Link to="/login">Login</Link>
+                </Button>
+                <Button size="sm" asChild className="bg-gradient-primary">
+                  <Link to="/register">Cadastre-se</Link>
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto text-center">
-          <Badge className="mb-6 bg-primary/10 text-primary border-primary/20">
+      <section className="py-20 px-4 relative">
+        <div className="container mx-auto text-center relative z-10">
+          <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 animate-fade-in hover-scale">
+            <Sparkles className="w-4 h-4 mr-2" />
             🚀 Sistema CRM para Advocacia
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">
-            Revolucione sua
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
+            <span className="bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">
+              Revolucione sua
+            </span>
             <br />
-            Gestão Jurídica
+            <span className="bg-gradient-to-r from-accent via-primary to-primary-dark bg-clip-text text-transparent">
+              Gestão Jurídica
+            </span>
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            O Quantum Jud é a solução completa para escritórios de advocacia que buscam eficiência, 
-            organização e crescimento sustentável.
+          
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in">
+            O Quantum Jud é a solução completa para escritórios de advocacia que buscam 
+            <span className="text-primary font-semibold"> eficiência</span>, 
+            <span className="text-primary font-semibold"> organização</span> e 
+            <span className="text-primary font-semibold"> crescimento sustentável</span>.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="text-lg px-8 py-6">
-              Começar Teste Gratuito
-              <ArrowRight className="ml-2 h-5 w-5" />
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
+            <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:opacity-90 hover-scale shadow-glow" asChild>
+              <Link to="/register">
+                Começar Teste Gratuito
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+            <Button size="lg" variant="outline" className="text-lg px-8 py-6 hover-scale border-primary/30 hover:border-primary">
               Ver Demonstração
+              <TrendingUp className="ml-2 h-5 w-5" />
             </Button>
           </div>
-          <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
+          
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm text-muted-foreground animate-fade-in">
+            <div className="flex items-center gap-2 hover-scale">
               <CheckCircle className="h-5 w-5 text-primary" />
-              14 dias grátis
+              <span className="font-medium">14 dias grátis</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 hover-scale">
               <CheckCircle className="h-5 w-5 text-primary" />
-              Sem cartão de crédito
+              <span className="font-medium">Sem cartão de crédito</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 hover-scale">
               <CheckCircle className="h-5 w-5 text-primary" />
-              Suporte incluído
+              <span className="font-medium">Suporte incluído</span>
             </div>
+            <div className="flex items-center gap-2 hover-scale">
+              <Globe className="h-5 w-5 text-primary" />
+              <span className="font-medium">LGPD Compliant</span>
+            </div>
+          </div>
+
+          {/* Stats Section */}
+          <div className="grid md:grid-cols-3 gap-8 mt-16 max-w-4xl mx-auto">
+            <Card className="border-0 bg-background/50 backdrop-blur-sm hover:shadow-glow transition-all duration-500 hover-scale">
+              <CardContent className="pt-6 text-center">
+                <div className="text-3xl font-bold text-primary mb-2">500+</div>
+                <div className="text-muted-foreground">Escritórios Atendidos</div>
+              </CardContent>
+            </Card>
+            <Card className="border-0 bg-background/50 backdrop-blur-sm hover:shadow-glow transition-all duration-500 hover-scale">
+              <CardContent className="pt-6 text-center">
+                <div className="text-3xl font-bold text-primary mb-2">40%</div>
+                <div className="text-muted-foreground">Aumento de Produtividade</div>
+              </CardContent>
+            </Card>
+            <Card className="border-0 bg-background/50 backdrop-blur-sm hover:shadow-glow transition-all duration-500 hover-scale">
+              <CardContent className="pt-6 text-center">
+                <div className="text-3xl font-bold text-primary mb-2">99.9%</div>
+                <div className="text-muted-foreground">Uptime Garantido</div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -197,7 +280,9 @@ const Landing = () => {
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>Suporte por email</span>
                 </div>
-                <Button className="w-full mt-6">Começar Teste</Button>
+                <Button className="w-full mt-6 bg-gradient-primary hover:opacity-90" asChild>
+                  <Link to="/register">Começar Teste</Link>
+                </Button>
               </CardContent>
             </Card>
 
@@ -236,7 +321,9 @@ const Landing = () => {
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>Automações</span>
                 </div>
-                <Button className="w-full mt-6">Começar Teste</Button>
+            <Button className="w-full mt-6 bg-gradient-primary hover:opacity-90" asChild>
+              <Link to="/register">Começar Teste</Link>
+            </Button>
               </CardContent>
             </Card>
 
@@ -352,9 +439,11 @@ const Landing = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Junte-se a centenas de advogados que já confiam no Quantum Jud para gerir seus escritórios.
           </p>
-          <Button size="lg" className="text-lg px-8 py-6">
-            Começar Teste Gratuito de 14 Dias
-            <ArrowRight className="ml-2 h-5 w-5" />
+          <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:opacity-90 hover-scale shadow-glow" asChild>
+            <Link to="/register">
+              Começar Teste Gratuito de 14 Dias
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
           </Button>
         </div>
       </section>
