@@ -13,45 +13,47 @@ import {
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
+const basePath = "/admin";
+
 const navigation = [
   {
     name: "Dashboard",
-    href: "/",
+    href: basePath,
     icon: LayoutDashboard,
   },
   {
     name: "Empresas",
-    href: "/companies",
+    href: `${basePath}/companies`,
     icon: Building2,
   },
   {
     name: "Planos",
-    href: "/plans",
+    href: `${basePath}/plans`,
     icon: Package,
   },
   {
     name: "Assinaturas",
-    href: "/subscriptions",
+    href: `${basePath}/subscriptions`,
     icon: CreditCard,
   },
   {
     name: "Usuários",
-    href: "/users",
+    href: `${basePath}/users`,
     icon: Users,
   },
   {
     name: "Relatórios",
-    href: "/analytics",
+    href: `${basePath}/analytics`,
     icon: BarChart3,
   },
   {
     name: "Suporte",
-    href: "/support",
+    href: `${basePath}/support`,
     icon: HeadphonesIcon,
   },
   {
     name: "Configurações",
-    href: "/settings",
+    href: `${basePath}/settings`,
     icon: Settings,
   },
 ];
