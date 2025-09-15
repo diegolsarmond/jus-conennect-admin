@@ -17,6 +17,7 @@ import {
   Users,
   BarChart3,
   HeadphonesIcon,
+  FileText,
   Settings
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -58,6 +59,11 @@ const navigation = [
     name: "Suporte",
     href: routes.admin.support,
     icon: HeadphonesIcon,
+  },
+  {
+    name: "Logs",
+    href: routes.admin.logs,
+    icon: FileText,
   },
   {
     name: "Configurações",

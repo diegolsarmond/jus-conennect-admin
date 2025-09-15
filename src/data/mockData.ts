@@ -297,3 +297,178 @@ export const mockPlanDistribution = [
   { name: 'Profissional', value: 35, customers: 8 },
   { name: 'Enterprise', value: 25, customers: 7 },
 ];
+
+export interface ServerLog {
+  id: string;
+  level: 'info' | 'warn' | 'error';
+  timestamp: string;
+  message: string;
+  logger?: string;
+  metadata?: Record<string, unknown>;
+  request?: {
+    method: string;
+    host: string;
+    uri: string;
+    status: number;
+    durationMs: number;
+    size: number;
+    clientIp: string;
+    protocol: string;
+    userAgent: string;
+    forwardedFor?: string;
+  };
+}
+
+export const mockServerLogs: ServerLog[] = [
+  {
+    id: 'log-1',
+    level: 'info',
+    timestamp: '2025-09-15T17:07:15.296242+00:00',
+    message: 'Using config from file',
+    metadata: {
+      file: '/assets/Caddyfile',
+    },
+  },
+  {
+    id: 'log-2',
+    level: 'info',
+    timestamp: '2025-09-15T17:07:15.301657+00:00',
+    message: 'Adapted config to JSON',
+    metadata: {
+      adapter: 'caddyfile',
+    },
+  },
+  {
+    id: 'log-3',
+    level: 'warn',
+    timestamp: '2025-09-15T17:07:15.302323+00:00',
+    logger: 'admin',
+    message: 'Admin endpoint disabled',
+    metadata: {
+      admin_endpoint: 'disabled',
+    },
+  },
+  {
+    id: 'log-4',
+    level: 'info',
+    timestamp: '2025-09-15T17:07:15.302607+00:00',
+    logger: 'http.auto_https',
+    message: 'Automatic HTTPS is completely disabled for server',
+    metadata: {
+      server_name: 'srv0',
+    },
+  },
+  {
+    id: 'log-5',
+    level: 'info',
+    timestamp: '2025-09-15T17:07:15.306016+00:00',
+    logger: 'http.log',
+    message: 'Server running',
+    metadata: {
+      name: 'srv0',
+      protocols: ['h1', 'h2', 'h3'],
+    },
+  },
+  {
+    id: 'log-6',
+    level: 'info',
+    timestamp: '2025-09-15T17:07:15.306064+00:00',
+    message: 'Serving initial configuration',
+  },
+  {
+    id: 'log-7',
+    level: 'info',
+    timestamp: '2025-09-15T17:07:15.306252+00:00',
+    logger: 'tls.cache.maintenance',
+    message: 'Started background certificate maintenance',
+    metadata: {
+      cache: '0xc00080e500',
+    },
+  },
+  {
+    id: 'log-8',
+    level: 'info',
+    timestamp: '2025-09-15T17:07:15.346178+00:00',
+    logger: 'tls',
+    message: 'Cleaning storage unit',
+    metadata: {
+      storage: 'FileStorage:/root/.local/share/caddy',
+    },
+  },
+  {
+    id: 'log-9',
+    level: 'info',
+    timestamp: '2025-09-15T17:07:15.346889+00:00',
+    logger: 'tls',
+    message: 'Finished cleaning storage units',
+  },
+  {
+    id: 'log-10',
+    level: 'info',
+    timestamp: '2025-09-15T17:10:23.929662+00:00',
+    logger: 'http.log.access.log0',
+    message: 'Handled request',
+    metadata: {
+      referer: 'https://easypanel02.quantumtecnologia.com.br/',
+    },
+    request: {
+      method: 'GET',
+      host: 'quantumtecnologia-jus-conennect-admin.3a2ucf.easypanel.host',
+      uri: '/',
+      status: 200,
+      durationMs: 20.37,
+      size: 380,
+      clientIp: '190.52.73.117',
+      protocol: 'HTTP/1.1',
+      userAgent:
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
+      forwardedFor: '190.52.73.117',
+    },
+  },
+  {
+    id: 'log-11',
+    level: 'info',
+    timestamp: '2025-09-15T17:16:24.800494+00:00',
+    logger: 'http.log.access.log0',
+    message: 'Handled request',
+    metadata: {
+      cache_control: 'max-age=0',
+    },
+    request: {
+      method: 'GET',
+      host: 'quantumtecnologia-jus-conennect-admin.3a2ucf.easypanel.host',
+      uri: '/',
+      status: 304,
+      durationMs: 1.35,
+      size: 0,
+      clientIp: '190.52.73.117',
+      protocol: 'HTTP/1.1',
+      userAgent:
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
+      forwardedFor: '190.52.73.117',
+    },
+  },
+  {
+    id: 'log-12',
+    level: 'info',
+    timestamp: '2025-09-15T17:16:25.575566+00:00',
+    logger: 'http.log.access.log0',
+    message: 'Handled request',
+    metadata: {
+      cache_control: 'max-age=0',
+    },
+    request: {
+      method: 'GET',
+      host: 'quantumtecnologia-jus-conennect-admin.3a2ucf.easypanel.host',
+      uri: '/',
+      status: 304,
+      durationMs: 0.31,
+      size: 0,
+      clientIp: '190.52.73.117',
+      protocol: 'HTTP/1.1',
+      userAgent:
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
+      forwardedFor: '190.52.73.117',
+    },
+  },
+];
