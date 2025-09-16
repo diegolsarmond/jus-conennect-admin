@@ -43,6 +43,7 @@ export default defineConfig(({ mode }) => {
     build: {
       sourcemap: mode !== "production",
       chunkSizeWarningLimit: 1024,
+      manifest: "manifest.json",
     },
   };
 });
