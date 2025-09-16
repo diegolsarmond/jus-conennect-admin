@@ -19,6 +19,38 @@
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      const loadAppFromManifest = async () => {
+        const manifestUrl = new URL("./manifest.json", window.location.href);
+
+        try {
+          const response = await fetch(manifestUrl, { cache: "no-cache" });
+          if (!response.ok) {
+            throw new Error(`Manifest request failed with status ${response.status}`);
+          }
+
+          const manifest = await response.json();
+          const entry =
+            manifest["src/main.tsx"] ??
+            manifest["src/main.ts"] ??
+            manifest["src/main.jsx"] ??
+            manifest["src/main.js"];
+
+          if (!entry?.file) {
+            throw new Error("Could not find an entry chunk in manifest.json");
+          }
+
+          const entryUrl = new URL(entry.file, manifestUrl);
+          await import(entryUrl.href);
+        } catch (error) {
+          console.warn("Falling back to Vite dev server entry:", error);
+          await import("/src/main.tsx");
+        }
+      };
+
+      loadAppFromManifest().catch((error) => {
+        console.error("Failed to bootstrap the application:", error);
+      });
+    </script>
   </body>
 </html>
