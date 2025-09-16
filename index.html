@@ -19,6 +19,105 @@
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      const resolvePublicPath = (path) => {
+        if (!path) {
+          return null;
+        }
+
+        if (/^https?:/u.test(path)) {
+          return path;
+        }
+
+        if (path.startsWith("/")) {
+          return path;
+        }
+
+        return `./${path}`;
+      };
+
+      const ensureStylesheets = (files = []) =>
+        Promise.all(
+          files.map((file) => {
+            const href = resolvePublicPath(file);
+            if (!href) {
+              return Promise.resolve();
+            }
+
+            if (document.querySelector(`link[rel="stylesheet"][href="${href}"]`)) {
+              return Promise.resolve();
+            }
+
+            return new Promise((resolve, reject) => {
+              const link = document.createElement("link");
+              link.rel = "stylesheet";
+              link.href = href;
+              link.onload = () => resolve(undefined);
+              link.onerror = () => reject(new Error(`Não foi possível carregar ${href}`));
+              document.head.appendChild(link);
+            });
+          }),
+        );
+
+      const loadFromManifest = async () => {
+        try {
+          const manifestUrl = new URL("./manifest.json", window.location.href);
+          const response = await fetch(manifestUrl, { cache: "no-store" });
+          if (!response.ok) {
+            return false;
+          }
+
+          const manifest = await response.json();
+          const entry = manifest["index.html"] ?? manifest["src/main.tsx"];
+          if (!entry?.file) {
+            return false;
+          }
+
+          const styles = new Set(entry.css ?? []);
+          if (entry.dynamicImports) {
+            entry.dynamicImports
+              .map((key) => manifest[key])
+              .filter((item) => Array.isArray(item?.css))
+              .forEach((item) => item.css.forEach((cssFile) => styles.add(cssFile)));
+          }
+
+          await ensureStylesheets([...styles]).catch((error) => {
+            console.warn("Falha ao carregar estilos do bundle", error);
+          });
+
+          const entryPath = resolvePublicPath(entry.file);
+          if (!entryPath) {
+            return false;
+          }
+
+          await import(/* @vite-ignore */ entryPath);
+          return true;
+        } catch (error) {
+          console.warn("Não foi possível carregar o bundle gerado pelo build", error);
+          return false;
+        }
+      };
+
+      const startApplication = async () => {
+        const loaded = await loadFromManifest();
+        if (loaded) {
+          return;
+        }
+
+        await import("/src/main.tsx");
+      };
+
+      startApplication().catch((error) => {
+        console.error("Falha ao iniciar a aplicação", error);
+        const root = document.getElementById("root");
+        if (root) {
+          root.innerHTML =
+            '<div style="padding: 1.5rem; font-family: system-ui, sans-serif; color: #dc2626;">' +
+            "<h1 style=\"font-size: 1.25rem; margin-bottom: 0.5rem;\">Não foi possível carregar a aplicação</h1>" +
+            "<p style=\"margin: 0;\">Verifique se o build foi executado e se o arquivo <code>manifest.json</code> está disponível.</p>" +
+            "</div>";
+        }
+      });
+    </script>
   </body>
 </html>
